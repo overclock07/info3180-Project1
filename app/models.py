@@ -1,28 +1,26 @@
-from . import db
+from app import db
+from datetime import datetime
 
+class userprofile(db.Model):
+    userid = db.Column('userid', db.Integer, primary_key=True)
+    firstname = db.Column(db.String(80))
+    lastname = db.Column(db.String(80))
+    gender = db.Column(db.String(80))
+    email = db.Column(db.String(80))
+    location = db.Column(db.String(80))
+    biography = db.Column(db.String(80))
+    image = db.Column(db.String(80))
+    created_on = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-class UserProfile(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(80))
-    last_name = db.Column(db.String(80))
-    username = db.Column(db.String(80), unique=True)
-    password = db.Column(db.String(255))
-
-
-    def is_authenticated(self):
-        return True
-
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        try:
-            return unicode(self.id)  # python 2 support
-        except NameError:
-            return str(self.id)  # python 3 support
+    def __init__(self, firstname, lastname, gender, email, location, biography, image):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.gender = gender
+        self.email = email
+        self.location = location
+        self.biography = biography
+        self.image = image
+      
 
     def __repr__(self):
-        return '<User %r>' % (self.username)
+        return '<UserProfile %r>' % self.username
