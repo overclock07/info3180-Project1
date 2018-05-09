@@ -13,10 +13,10 @@ POSTGRES = {
     'port': '5432',
 }
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://localhost/project1"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://nfajwkhxbdktgd:282fbb1ce7872970eaba2384a70573e02d962d98bc8860bc3ce896bc6602081b@ec2-23-23-248-192.compute-1.amazonaws.com:5432/dboa7061d50rtl'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%(user)s:\
-%(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%(user)s:\
+#%(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True # added just to suppress a warning
 
